@@ -34,7 +34,7 @@ function clickMe() {
 }
 function SimpleCard(props) {
   const classes = useStyles();
-  const { title, subtitle, description, imgSrc } = props;
+  const { title, subtitle, description, imgSrc, id } = props;
 
   return (
     <Card style={{ backgroundColor: "#28313b" }}>
