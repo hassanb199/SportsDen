@@ -34,7 +34,7 @@ function clickMe() {
 }
 function SimpleCard(props) {
   const classes = useStyles();
-  const { title, subtitle, description, imgSrc, id } = props;
+  const { title, subtitle, description, imgSrc, id, price, eventHandler } = props;
 
   return (
     <Card style={{ backgroundColor: "#28313b" }}>
@@ -49,7 +49,7 @@ function SimpleCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button className="addToCart" variant="contained" fullWidth color="secondary" >Add to Cart</Button>
+        <Button onClick={eventHandler} variant="contained" fullWidth color="secondary" >Add to Cart</Button>
       </CardActions>
     </Card>
   );
