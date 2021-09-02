@@ -7,6 +7,9 @@ function ContentGear() {
   function eventHandler1() {
     console.log("Soccer Cleats")
   }
+  function eventHandler2() {
+    alert("Soccer Ball")
+  }
   return (
     <Grid container spacing={2}>
       <Grid className="first" item xs={4}>
@@ -27,7 +30,7 @@ function ContentGear() {
           imgSrc='assets/soccerball.jpg'
           id='2'
           price={50} 
-          eventHandler={console.log("Soccer Ball")}/>
+          eventHandler={eventHandler2}/>
       </Grid>
       <Grid item xs={4}>
         <SimpleCard
