@@ -3,7 +3,7 @@ import ContentGear from './components/content/contentGear';
 
 const intialState = {
   name: 'Hassan Bajwa',
-  email: 'hassan.b404@gmail.com'
+  price: 'hassan.b404@gmail.com'
 
 };
 

@@ -18,7 +18,7 @@ function Cart() {
   return (
     <div className={classes.root} style={{paddingTop:"100px"}}>
       <p>Name: {state.name}</p>
-      <p>Email: {state.email}</p>
+      <p>price: {state.price}</p>
     </div>
   )
 }

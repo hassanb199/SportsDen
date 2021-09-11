@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import SimpleCard from '../CardsTemplate';
 import { Grid } from '@material-ui/core';
+import { CartContext } from '../../CartContext';
 
 
 export var itemArray = [];
 
 function ContentGear() {
+
+  const [state, setState] = useContext(CartContext);
   function eventHandler1() {
-    alert("Soccer Cleats")
+    var SoccerBallObject = {name :"Soccer Ball", price : "$115"}
+    setState(SoccerBallObject)
   }
   function eventHandler2() {
     alert("Soccer Ball")
