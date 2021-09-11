@@ -5,7 +5,7 @@ import { makeStyles, Typography, Card, CardHeader, CardMedia, CardContent, Grid 
 const styles = makeStyles({
   root: {
     backgroundImage: `url(${"/assets/backgroundSports.jpg"})`,
-    height: '100vh'
+    height: '130vh'
   },
 
   card: {

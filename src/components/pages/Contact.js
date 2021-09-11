@@ -39,7 +39,7 @@ function Contact() {
                   <TextField label="Phone Number" placeholder="Enter your phone number" variant="outlined" fullWidth required />
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField label="Message" multiline rows={3} placeholder="Enter your last name" variant="outlined" fullWidth />
+                  <TextField label="Message" multiline rows={3} placeholder="Enter a message" variant="outlined" fullWidth />
                 </Grid>
                 <Grid item xs={12}>
                   <ButtonCustom txt="Submit" />

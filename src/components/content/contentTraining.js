@@ -4,13 +4,17 @@ import { Grid } from '@material-ui/core';
 
 
 function ContentTraining() {
+  function eventHandler2() {
+    alert("Lionel Messi")
+  }
   return (
     <Grid container spacing={2}>
       <Grid item xs={4}>
         <SimpleCard
           title="Lionel Messi"
           subtitle="Coaching Rate: $100,000/hr"
-          imgSrc='assets/messi.jpg' />
+          imgSrc='assets/messi.jpg'
+          eventHandler={eventHandler2}/>
 
       </Grid>
       <Grid item xs={4}>

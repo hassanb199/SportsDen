@@ -3,9 +3,11 @@ import SimpleCard from '../CardsTemplate';
 import { Grid } from '@material-ui/core';
 
 
+export var itemArray = [];
+
 function ContentGear() {
   function eventHandler1() {
-    console.log("Soccer Cleats")
+    alert("Soccer Cleats")
   }
   function eventHandler2() {
     alert("Soccer Ball")
@@ -92,4 +94,5 @@ function ContentGear() {
   )
 }
 
+console.log(itemArray)
 export default ContentGear
