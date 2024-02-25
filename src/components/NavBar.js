@@ -1,89 +1,111 @@
 import React from 'react';
-import { AppBar, Toolbar, Tabs, Tab, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core';
-import ButtonCustom from './ButtonCustom';
-import InfoIcon from '@material-ui/icons/Info';
+import { AppBar, Toolbar, Tabs, Tab, Typography, IconButton } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Link, NavLink } from 'react-router-dom';
 import { GiGymBag, GiTrophy, GiWhistle } from 'react-icons/gi';
 import { ImPhone } from 'react-icons/im';
-import { NavLink, Link } from 'react-router-dom';
+import InfoIcon from '@material-ui/icons/Info';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
-
-
-
-
-const Styles = makeStyles({
-  bar: {
-    textDecoration: "none",
-    color: "#FF7F50",
-    display: "flex",
-    ['@media (max-width:780px)']: {
-      flexDirection: "column"
-    }
-
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: theme.palette.background.paper, // Change background color
+    boxShadow: 'none', // Remove box shadow
   },
-  containerTabs: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    variant: 'fullWidth',
-
-    flexContainer: {
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    appbar: {
-      width: "100vh",
-      position: 'sticky',
-      color: 'primary',
-      flexGrow: '1',
-      display: 'flex'
-    },
-  }
-})
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'center', // Center-align content
+  },
+  logo: {
+    height: '50px',
+    marginRight: theme.spacing(2),
+  },
+  tabs: {
+    margin: '0 auto', // Center-align tabs
+    textAlign: 'center', // Center-align tabs
+  },
+  tab: {
+    minWidth: 'auto', // Allow tabs to shrink to content width
+    padding: theme.spacing(1, 2), // Adjust padding
+    color: theme.palette.text.primary, // Use text color from theme
+  },
+  activeTab: {
+    fontWeight: 'bold', // Highlight active tab
+  },
+  cartButton: {
+    marginLeft: theme.spacing(2),
+  },
+}));
 
 function NavBar() {
-  const classes = Styles();
+  const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   return (
-    <>
-      <AppBar className={classes.appbar}>
-
-        <Toolbar style={{ alignItems: "center", justifyContent: "center" }}>
-
-          <Link to='/'>
-            <img src={'/assets/sportsdenlogo.png'} style={{ height: '60px', paddingRight: '20px', paddingTop: '5px' }} />
-          </Link>
-
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            indicatiorColor='secondary'
-            centered
-            width="100%"
-          >
-            <Tab icon={<InfoIcon />} label='About' component={Link} exact to='/about'></Tab>
-            <Tab icon={<GiGymBag />} label='Essential Gear' component={Link} exact to='/gear'></Tab>
-            <Tab icon={<GiWhistle />} label='Coaching' component={Link} exact to='/coaching'></Tab>
-            <Tab icon={<GiTrophy />} label='Tournaments' component={Link} exact to='/tournaments'></Tab>
-            <Tab icon={<ImPhone />} label='Contact' component={Link} exact to='/contact'></Tab>
-
-
-            <NavLink style={{ paddingTop: "15px", paddingLeft: "15px" }} exact to="/viewCart" className={classes.bar}>
-              <ButtonCustom txt='View Cart'></ButtonCustom>
-            </NavLink>
-
-
-
-          </Tabs>
-        </Toolbar>
-      </AppBar>
-    </>
-
-
-  )
+    <AppBar position="static" className={classes.appBar}>
+      <Toolbar className={classes.toolbar}>
+        <Link to='/'>
+          <img src={'/assets/sportsdenlogo.png'} alt="Logo" className={classes.logo} />
+        </Link>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          className={classes.tabs}
+          indicatorColor="secondary"
+        >
+          <Tab
+            icon={<InfoIcon />}
+            label='About'
+            component={NavLink}
+            to='/about'
+            className={classes.tab}
+            activeClassName={classes.activeTab}
+          />
+          <Tab
+            icon={<GiGymBag />}
+            label='Essential Gear'
+            component={NavLink}
+            to='/gear'
+            className={classes.tab}
+            activeClassName={classes.activeTab}
+          />
+          <Tab
+            icon={<GiWhistle />}
+            label='Coaching'
+            component={NavLink}
+            to='/coaching'
+            className={classes.tab}
+            activeClassName={classes.activeTab}
+          />
+          <Tab
+            icon={<GiTrophy />}
+            label='Tournaments'
+            component={NavLink}
+            to='/tournaments'
+            className={classes.tab}
+            activeClassName={classes.activeTab}
+          />
+          <Tab
+            icon={<ImPhone />}
+            label='Contact'
+            component={NavLink}
+            to='/contact'
+            className={classes.tab}
+            activeClassName={classes.activeTab}
+          />
+        </Tabs>
+        <NavLink to="/viewCart" className={classes.cartButton}>
+          <IconButton color="primary">
+            <ShoppingCartIcon />
+          </IconButton>
+        </NavLink>
+      </Toolbar>
+    </AppBar>
+  );
 }
 
-export default NavBar
+export default NavBar;
