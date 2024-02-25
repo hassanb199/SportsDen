@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 'auto', // Allow tabs to shrink to content width
     padding: theme.spacing(1, 2), // Adjust padding
     color: theme.palette.text.primary, // Use text color from theme
+    margin: theme.spacing(0, 1), // Add margin between tabs
   },
   activeTab: {
     fontWeight: 'bold', // Highlight active tab
