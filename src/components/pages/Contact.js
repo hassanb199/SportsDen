@@ -3,24 +3,24 @@ import { makeStyles, Typography, Card, CardContent, Grid, TextField, Button, Con
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#F5F5F5', // Soft gray background color
+    backgroundColor: '#f0f0f0', // White background color
     minHeight: '100vh',
-    paddingTop: theme.spacing(6), // Adjusted paddingTop to reduce spacing
+    paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(8),
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
   card: {
-    backgroundColor: 'rgba(0, 0, 0, 0.9)', // Card background color is semi-transparent black
+    backgroundColor: 'rgba(255, 255, 255, 0.9)', // Semi-transparent white background color for the card
     padding: theme.spacing(4),
   },
   title: {
     marginBottom: theme.spacing(3),
-    color: '#FFFFFF', // Title color is white
+    color: '#000000', // Title color is black
   },
   formLabel: {
-    color: '#FFFFFF', // Form label color is white
+    color: '#000000', // Form label color is black
   },
   button: {
     marginTop: theme.spacing(2),

@@ -16,7 +16,7 @@ function ContentTournament() {
             </Grid>
             <Grid item xs={4}>
                 <SimpleCard
-                    title="ICC Cricket World Cup 2023"
+                    title="ICC World Cup 2023"
                     subtitle="Entry Fee: $800"
                     imgSrc='assets/icc.png' />
             </Grid>

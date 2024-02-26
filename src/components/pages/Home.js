@@ -17,15 +17,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff', // Text color
     padding: theme.spacing(4),
   },
-  logo: {
-    height: '250px',
-    marginBottom: theme.spacing(2),
-  },
   overlay: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
     backgroundColor: 'rgba(255, 255, 255, 0.7)', // Transparent whitish background color
     padding: theme.spacing(3),
     borderRadius: theme.spacing(1),
@@ -50,7 +42,6 @@ function Home() {
 
   return (
     <div className={classes.root}>
-      <img src={'assets/sportsdenlogo.png'} alt="Logo" className={classes.logo} />
       <div className={classes.overlay}>
         <Typography variant="h3" className={classes.slogan} gutterBottom>Welcome to Sports Den</Typography>
         <Typography variant="body1" className={classes.description} gutterBottom>

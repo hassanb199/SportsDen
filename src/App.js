@@ -20,7 +20,7 @@ import Store from './CartContext';
 
 const theme = createTheme({
   palette: {
-    type: "dark",
+    type: "light",
     primary: {
       main: "#4E5E8E",
     },
@@ -31,7 +31,9 @@ const theme = createTheme({
   typography: {
     fontFamily: [
       'Roboto'
-    ]
+    ],
+
+    color: '#000', 
 
   }
 

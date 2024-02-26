@@ -2,8 +2,8 @@ import { React, Component, createContext, useState } from 'react';
 import ContentGear from './components/content/contentGear';
 
 const intialState = {
-  name: 'Hassan Bajwa',
-  price: 'hassan.b404@gmail.com'
+  name: 'No items added to cart',
+  price: '0'
 
 };
 

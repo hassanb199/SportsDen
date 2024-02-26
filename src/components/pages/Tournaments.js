@@ -1,33 +1,33 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
-import { Grid } from '@material-ui/core';
+import { makeStyles, Grid } from '@material-ui/core';
 import ContentTournament from '../content/contentTournament';
 
-
-const styles = makeStyles({
-    margin: {
-        paddingTop: '125px',
-
-    },
-    imgBackground: {
-        backgroundColor: '#F5F5F5', // Soft gray background color
-        minHeight: '100vh',
-    }
-})
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: '#F5F5F5', // Soft gray background color
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: theme.spacing(3),
+  },
+  margin: {
+    marginTop: theme.spacing(8), // Adjust the top margin as needed
+  },
+}));
 
 function Tournament() {
-    const classes = styles();
-    return (
-        <div className={classes.imgBackground}>
-            <Grid item container className={classes.margin}>
-                <Grid item xs={0} sm={2} />
-                <Grid item xs={12} sm={8}>
-                    <ContentTournament />
-                </Grid>
-                <Grid item xs={0} sm={2} />
-            </Grid>
-
-        </div>
-    )
+  const classes = useStyles();
+  
+  return (
+    <div className={classes.root}>
+      <Grid container justify="center" className={classes.margin}>
+        <Grid item xs={12} sm={8}>
+          <ContentTournament />
+        </Grid>
+      </Grid>
+    </div>
+  );
 }
-export default Tournament
+
+export default Tournament;

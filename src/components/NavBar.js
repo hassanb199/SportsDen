@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   logo: {
-    height: '40px', // Height for the logo
+    height: '60px', // Increase the height for the logo
   },
   navLinks: {
     display: 'flex',
@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cartButton: {
     color: '#ffffff', // White color for cart icon
+    fontSize: '1.5rem', // Increase the font size of the cart icon
   },
   search: {
     position: 'relative',
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: '#f5f5f5', // Lighter background color on hover
     },
-    marginRight: theme.spacing(45),
+    marginRight: theme.spacing(60),
     marginLeft: theme.spacing(5), // Increase left margin for the search bar
     width: 'auto',
   },
@@ -77,7 +78,7 @@ function NavBar() {
     <AppBar position="static" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
         <Link to='/' className={classes.logoContainer}>
-          <img src={'/assets/canadian-olympic.png'} alt="Logo" className={classes.logo} />
+          <img src={'/assets/new-logo.svg'} alt="Logo" className={classes.logo} />
         </Link>
         <div className={classes.navLinks}>
           <Button component={NavLink} to='/about' className={classes.link} activeClassName={classes.activeLink}>About</Button>
@@ -99,7 +100,7 @@ function NavBar() {
             />
           </div>
           <IconButton to="/viewCart" component={NavLink} className={classes.cartButton}>
-            <ShoppingCartIcon />
+            <ShoppingCartIcon fontSize="large" /> {/* Increase the font size of the cart icon */}
           </IconButton>
         </div>
       </Toolbar>
