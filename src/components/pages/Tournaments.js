@@ -5,12 +5,13 @@ import ContentTournament from '../content/contentTournament';
 
 
 const styles = makeStyles({
-    margin:{
-        paddingTop:'125px',
-      
+    margin: {
+        paddingTop: '125px',
+
     },
-    imgBackground:{
-        backgroundImage:`url(${"/assets/backgroundSports.jpg"})`
+    imgBackground: {
+        backgroundColor: '#F5F5F5', // Soft gray background color
+        minHeight: '100vh',
     }
 })
 
@@ -18,15 +19,15 @@ function Tournament() {
     const classes = styles();
     return (
         <div className={classes.imgBackground}>
-        <Grid item container className={classes.margin}>
-            <Grid item xs={0} sm={2}/>
-            <Grid item xs={12} sm={8}>
-               <ContentTournament/>
+            <Grid item container className={classes.margin}>
+                <Grid item xs={0} sm={2} />
+                <Grid item xs={12} sm={8}>
+                    <ContentTournament />
+                </Grid>
+                <Grid item xs={0} sm={2} />
             </Grid>
-            <Grid item xs={0} sm={2}/>
-        </Grid>
-        
-    </div>
+
+        </div>
     )
 }
 export default Tournament

@@ -1,109 +1,107 @@
 import React from 'react';
-import { AppBar, Toolbar, Tabs, Tab, Typography, IconButton } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Button, IconButton, InputBase } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, NavLink } from 'react-router-dom';
-import { GiGymBag, GiTrophy, GiWhistle } from 'react-icons/gi';
-import { ImPhone } from 'react-icons/im';
-import InfoIcon from '@material-ui/icons/Info';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    backgroundColor: theme.palette.background.paper, // Change background color
-    boxShadow: 'none', // Remove box shadow
+    backgroundColor: '#2a2a2a', // Dark background color
   },
   toolbar: {
     display: 'flex',
-    justifyContent: 'center', // Center-align content
+    justifyContent: 'space-between', // Space between logo and nav links
+    alignItems: 'center', // Center vertically
+    padding: theme.spacing(1, 2), // Padding for toolbar
+  },
+  logoContainer: {
+    textDecoration: 'none', // Remove underline from link
+    color: '#ffffff', // White color for logo
+    display: 'flex',
+    alignItems: 'center',
   },
   logo: {
-    height: '50px',
-    marginRight: theme.spacing(2),
+    height: '40px', // Height for the logo
   },
-  tabs: {
-    margin: '0 auto', // Center-align tabs
-    textAlign: 'center', // Center-align tabs
+  navLinks: {
+    display: 'flex',
+    alignItems: 'center',
   },
-  tab: {
-    minWidth: 'auto', // Allow tabs to shrink to content width
-    padding: theme.spacing(1, 2), // Adjust padding
-    color: theme.palette.text.primary, // Use text color from theme
-    margin: theme.spacing(0, 1), // Add margin between tabs
-  },
-  activeTab: {
-    fontWeight: 'bold', // Highlight active tab
+  link: {
+    textDecoration: 'none',
+    color: '#ffffff', // White text color
+    margin: theme.spacing(0, 1), // Adjust spacing between links
+    '&:hover': {
+      color: '#ffd166', // Lighter color on hover
+    },
   },
   cartButton: {
-    marginLeft: theme.spacing(2),
+    color: '#ffffff', // White color for cart icon
+  },
+  search: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: '#ffffff', // White background color for search bar
+    '&:hover': {
+      backgroundColor: '#f5f5f5', // Lighter background color on hover
+    },
+    marginRight: theme.spacing(45),
+    marginLeft: theme.spacing(5), // Increase left margin for the search bar
+    width: 'auto',
+  },
+  searchIcon: {
+    color: '#000000', // Black color for search icon
+    padding: theme.spacing(0, 1),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: '#000000', // Black color for input text
+    paddingLeft: theme.spacing(3),
+  },
+  inputInput: {
+    padding: theme.spacing(1),
+    paddingLeft: theme.spacing(1), 
   },
 }));
 
 function NavBar() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   return (
     <AppBar position="static" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        <Link to='/'>
-          <img src={'/assets/sportsdenlogo.png'} alt="Logo" className={classes.logo} />
+        <Link to='/' className={classes.logoContainer}>
+          <img src={'/assets/canadian-olympic.png'} alt="Logo" className={classes.logo} />
         </Link>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          className={classes.tabs}
-          indicatorColor="secondary"
-        >
-          <Tab
-            icon={<InfoIcon />}
-            label='About'
-            component={NavLink}
-            to='/about'
-            className={classes.tab}
-            activeClassName={classes.activeTab}
-          />
-          <Tab
-            icon={<GiGymBag />}
-            label='Essential Gear'
-            component={NavLink}
-            to='/gear'
-            className={classes.tab}
-            activeClassName={classes.activeTab}
-          />
-          <Tab
-            icon={<GiWhistle />}
-            label='Coaching'
-            component={NavLink}
-            to='/coaching'
-            className={classes.tab}
-            activeClassName={classes.activeTab}
-          />
-          <Tab
-            icon={<GiTrophy />}
-            label='Tournaments'
-            component={NavLink}
-            to='/tournaments'
-            className={classes.tab}
-            activeClassName={classes.activeTab}
-          />
-          <Tab
-            icon={<ImPhone />}
-            label='Contact'
-            component={NavLink}
-            to='/contact'
-            className={classes.tab}
-            activeClassName={classes.activeTab}
-          />
-        </Tabs>
-        <NavLink to="/viewCart" className={classes.cartButton}>
-          <IconButton color="primary">
+        <div className={classes.navLinks}>
+          <Button component={NavLink} to='/about' className={classes.link} activeClassName={classes.activeLink}>About</Button>
+          <Button component={NavLink} to='/gear' className={classes.link} activeClassName={classes.activeLink}>Essential Gear</Button>
+          <Button component={NavLink} to='/coaching' className={classes.link} activeClassName={classes.activeLink}>Coaching</Button>
+          <Button component={NavLink} to='/tournaments' className={classes.link} activeClassName={classes.activeLink}>Tournaments</Button>
+          <Button component={NavLink} to='/contact' className={classes.link} activeClassName={classes.activeLink}>Contact</Button>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+          <IconButton to="/viewCart" component={NavLink} className={classes.cartButton}>
             <ShoppingCartIcon />
           </IconButton>
-        </NavLink>
+        </div>
       </Toolbar>
     </AppBar>
   );

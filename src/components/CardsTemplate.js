@@ -1,55 +1,64 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import { CardHeader, CardMedia } from '@material-ui/core';
-import { Button } from '@material-ui/core';
-
-
+import { 
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  Typography 
+} from '@material-ui/core';
 
 const useStyles = makeStyles({
-
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+  card: {
+    backgroundColor: "#28313b",
+    marginBottom: '20px',
   },
-  title: {
-    fontSize: 14,
+  media: {
+    height: '200px', // Adjust height as needed
+    backgroundSize: 'contain', // Ensure the image fits within the media container
   },
-  pos: {
-    marginBottom: 12,
-    media: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9,
-      marginTop: '100'
-    }
-  }
+  description: {
+    color: '#ffffff',
+  },
+  button: {
+    backgroundColor: '#f44336',
+    color: '#ffffff',
+    '&:hover': {
+      backgroundColor: '#d32f2f',
+    },
+  },
 });
 
-function clickMe() {
-  alert('Added to Cart')
-}
 function SimpleCard(props) {
   const classes = useStyles();
-  const { title, subtitle, description, imgSrc, id, price, eventHandler } = props;
+  const { title, subtitle, description, imgSrc, eventHandler } = props;
 
   return (
-    <Card style={{ backgroundColor: "#28313b" }}>
+    <Card className={classes.card}>
       <CardHeader
         title={title}
         subheader={subtitle}
       />
-      <CardMedia style={{ height: "450px", width: "100%", margin: "auto", objectFit: 'cover', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }} image={imgSrc} />
+      <CardMedia 
+        className={classes.media}
+        image={imgSrc}
+      />
       <CardContent>
-        <Typography>
+        <Typography className={classes.description}>
           {description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button onClick={eventHandler} variant="contained" fullWidth color="secondary" >Add to Cart</Button>
+        <Button 
+          onClick={eventHandler} 
+          variant="contained" 
+          fullWidth 
+          className={classes.button}
+        >
+          Add to Cart
+        </Button>
       </CardActions>
     </Card>
   );

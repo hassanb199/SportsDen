@@ -4,8 +4,8 @@ import { CartContext } from '../../CartContext';
 
 const styles = makeStyles({
   root: {
-    backgroundImage: `url(${"/assets/homebackground.jpg"})`,
-    height: '100vh',
+    backgroundColor: '#F5F5F5', // Soft gray background color
+    minHeight: '100vh',
 
   }
 
